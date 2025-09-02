@@ -1,19 +1,16 @@
-import bookImage from 'figma:asset/d666048da2824550ccc04be94e65f57e018af973.png';
-import { useIsMobile } from './ui/use-mobile';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { useIsMobile } from './ui/use-mobile'
+import { motion } from 'framer-motion'
+
+const BOOK_IMG_SRC = '/img/book.png'
 
 export function HomePage() {
-  const isMobile = useIsMobile();
-  
-  // Enhanced desktop animations with cinematic blur
+  const isMobile = useIsMobile()
+
   const desktopVariants = {
-    hidden: { 
-      opacity: 0, 
-      filter: 'blur(24px) saturate(0.8)',
-      scale: 1.01
-    },
-    visible: { 
-      opacity: 1, 
+    hidden: { opacity: 0, filter: 'blur(24px) saturate(0.8)', scale: 1.01 },
+    visible: {
+      opacity: 1,
       filter: 'blur(0px) saturate(1)',
       scale: 1,
       transition: {
@@ -24,18 +21,12 @@ export function HomePage() {
         scale: { duration: 1.4, ease: [0.16, 1, 0.3, 1] }
       }
     }
-  };
+  }
 
-  // Enhanced mobile animations with subtle motion
   const mobileVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 16,
-      scale: 0.98,
-      filter: 'blur(1px)'
-    },
-    visible: { 
-      opacity: 1, 
+    hidden: { opacity: 0, y: 16, scale: 0.98, filter: 'blur(1px)' },
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       filter: 'blur(0px)',
@@ -49,45 +40,36 @@ export function HomePage() {
         filter: { duration: 0.7 }
       }
     }
-  };
-  
+  }
+
   if (isMobile) {
     return (
       <div className="flex flex-col items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 8rem)' }}>
-        {/* Contenedor centrado para imagen y texto */}
         <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-6">
-          
-          {/* Imagen centrada - reducida para mobile */}
-          <motion.div 
+          <motion.div
             className="flex items-center justify-center"
             initial="hidden"
             animate="visible"
             variants={mobileVariants}
           >
             <div className="w-56 sm:w-64 max-w-full">
-              <img 
-                src={bookImage}
+              <img
+                src={BOOK_IMG_SRC}
                 alt="Person browsing through book pages on a round table"
                 className="w-full h-auto mx-auto block"
                 style={{ filter: 'none' }}
               />
             </div>
           </motion.div>
-          
-          {/* Frase centrada debajo */}
-          <motion.div 
+
+          <motion.div
             className="flex items-center justify-center"
             initial="hidden"
             animate="visible"
             variants={{
-              hidden: { 
-                opacity: 0, 
-                y: 18,
-                scale: 0.96,
-                filter: 'blur(1.5px)'
-              },
-              visible: { 
-                opacity: 1, 
+              hidden: { opacity: 0, y: 18, scale: 0.96, filter: 'blur(1.5px)' },
+              visible: {
+                opacity: 1,
                 y: 0,
                 scale: 1,
                 filter: 'blur(0px)',
@@ -109,18 +91,16 @@ export function HomePage() {
               </p>
             </div>
           </motion.div>
-
         </div>
       </div>
-    );
+    )
   }
 
-  // Layout para desktop - Tagline a la izquierda, imagen a la derecha
   return (
     <div className="flex items-center relative" style={{ minHeight: 'calc(100vh - 8rem)' }}>
       <div className="w-full">
         <div className="grid grid-cols-12 items-center gap-6">
-          <motion.div 
+          <motion.div
             className="col-span-8"
             initial="hidden"
             animate="visible"
@@ -128,21 +108,18 @@ export function HomePage() {
               ...desktopVariants,
               visible: {
                 ...desktopVariants.visible,
-                transition: {
-                  ...desktopVariants.visible.transition,
-                  delay: 0.1
-                }
+                transition: { ...desktopVariants.visible.transition, delay: 0.1 }
               }
             }}
           >
-            <h1 
+            <h1
               className="font-sans tracking-normal leading-[1.02] text-[36px] lg:text-[42px] xl:text-[48px] max-w-[520px] lg:max-w-[580px] xl:max-w-[640px] 2xl:max-w-[680px]"
               style={{ fontWeight: 400 }}
             >
               An editorial studio crafting meaning, beauty, and long-lasting narratives.
             </h1>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="col-span-4 flex justify-end"
             initial="hidden"
             animate="visible"
@@ -150,16 +127,13 @@ export function HomePage() {
               ...desktopVariants,
               visible: {
                 ...desktopVariants.visible,
-                transition: {
-                  ...desktopVariants.visible.transition,
-                  delay: 0.3
-                }
+                transition: { ...desktopVariants.visible.transition, delay: 0.3 }
               }
             }}
           >
             <div className="w-56 sm:w-64 md:w-72 lg:w-84 xl:w-96 2xl:w-[32rem]">
-              <img 
-                src={bookImage}
+              <img
+                src={BOOK_IMG_SRC}
                 alt="Person browsing through book pages on a round table"
                 className="w-full h-auto block"
               />
@@ -168,5 +142,5 @@ export function HomePage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
