@@ -1,0 +1,44 @@
+{
+  "name": "editado-studio",
+  "version": "1.0.0",
+  "description": "An editorial studio crafting meaning, beauty, and long-lasting narratives",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.344.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "tailwindcss": "^4.0.0-alpha.25",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
+  },
+  "keywords": [
+    "editorial",
+    "studio",
+    "design",
+    "publishing",
+    "narrative"
+  ],
+  "author": "Editado Studio",
+  "license": "MIT",
+  "homepage": "https://editado.studio"
+}

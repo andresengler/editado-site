@@ -1,0 +1,15 @@
+/* Base typography */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
